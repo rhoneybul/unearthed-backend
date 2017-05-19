@@ -8,7 +8,7 @@ CORS(app)
 
 @app.route("/")
 def index():
-	return jsonify({'Greeting': 'Hello World'})
+	return jsonify({'Greeting': 'Hello Hackathon'})
 
 if __name__ == "__main__":
 	app.run()
