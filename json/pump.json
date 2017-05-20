@@ -1,20 +1,20 @@
 {
-  "Nodes": [
+  "nodes": [
     {
-      "name": null,  
+      "name": null,
       "geoCoordinates": {
-        "longtitude": null,
+        "longitude": null,
         "latitude": null,
       },
       "dCoordinates": {
         "x": 0,
-        "y": 0
+        "y": 0,
       },
-      "connections": [], 
-      "rIsolation":[],
-      "isLocked": false,   
-      "type": "Electric pump", 
-      "id": null
-    } 
+      "connections": [],
+      "rIsolation": [],
+      "isLocked": false,
+      "type": null,
+      "id": null,
+    }
   ]
 }
