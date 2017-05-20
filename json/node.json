@@ -1,0 +1,13 @@
+{
+	"id": null,
+	"critical": true,
+	"type": null,
+	"connections": {},
+	"longtitude": null,
+	"latitude": null,
+	"name": null,
+	"isLocked": false,
+	"verified": false,
+	"canIsolate": true,
+	"verifictionLog": []
+}

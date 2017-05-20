@@ -1,0 +1,96 @@
+{
+	"Nodes": [
+		{
+			"id": "pump",
+			"critical": true,
+			"type": "plantPump",
+			"connections": {},
+			"longtitude": null,
+			"latitude": null,
+			"name": null,
+			"isLocked": false,
+			"verified": false,
+			"canIsolate": true,
+			"verifictionLog": []			
+		},
+		{
+			"id": 0,
+			"critical": false,
+			"type": "potableWaterIsolationValve",
+			"connections": {"pump":"plantPump"},
+			"longtitude": null,
+			"latitude": null,
+			"name": null,
+			"isLocked": false,
+			"verified": false,
+			"canIsolate": true,
+			"verifictionLog": []			
+		},
+		{
+			"id": 1,
+			"critical": false,
+			"type": "potableWaterIsolationValve",
+			"connections": {"pump":"plantPump", "2":"potableWaterIsolationValve", "3":"potableWaterIsolationValve"},
+			"longtitude": null,
+			"latitude": null,
+			"name": null,
+			"isLocked": false,
+			"verified": false,
+			"canIsolate": true,
+			"verifictionLog": []			
+		},
+		{
+			"id": 2,
+			"critical": false,
+			"type": "potableWaterIsolationValve",
+			"connections": {"1":"potableWaterIsolationValve", "3":"potableWaterIsolationValve"},
+			"longtitude": null,
+			"latitude": null,
+			"name": null,
+			"isLocked": false,
+			"verified": false,
+			"canIsolate": true,
+			"verifictionLog": []			
+		},
+		{
+			"id": 3,
+			"critical": false,
+			"type": "potableWaterIsolationValve",
+			"connections": {"1":"potableWaterIsolationValve", "2":"potableWaterIsolationValve"},
+			"longtitude": null,
+			"latitude": null,
+			"name": null,
+			"isLocked": false,
+			"verified": false,
+			"canIsolate": true,
+			"verifictionLog": []			
+		},
+		{
+			"id": 4,
+			"critical": false,
+			"type": "potableWaterIsolationValve",
+			"connections": {"3":"potableWaterIsolationValve"},
+			"longtitude": null,
+			"latitude": null,
+			"name": null,
+			"isLocked": false,
+			"verified": false,
+			"canIsolate": true,
+			"verifictionLog": []			
+		},
+		{
+			"id": 5,
+			"critical": true,
+			"type": "electricValve",
+			"connections": {"pump":"plantPump"},
+			"longtitude": null,
+			"latitude": null,
+			"name": null,
+			"isLocked": false,
+			"verified": false,
+			"canIsolate": true,
+			"verifictionLog": []			
+		}
+
+	]
+}	
