@@ -23,20 +23,17 @@ def getNodes():
 		data = json.load(f)["Nodes"]
 	return jsonify({"Nodes": data})
 
-## POST request to add a new node
+## POST request to add a new node 
 
 @app.route("/nodes", methods=['POST'])
 def createNodes():
 	with open("json/pump.json", "rb") as f:
 		data = json.load(f)['Nodes']
-	
-	## find what the next id must be
 	ids = []
 	for node in data:
 		ids.append(node['id'])
 	maxid = np.max(ids)
 	id = maxid+1
-	## pass new object in to the database schema
 	newNode = {
 		"id": id,
 		"type": request.json["type"]
@@ -53,21 +50,57 @@ def createNodes():
 """
 ROUTES FOR A PARTICULAR NODE
 """
-
+## GET REQUEST FOR A PARTICULAR NODE
 @app.route("/<string:node>", methods=['GET'])
 def getNode(node):
 	with open('json/pump.json', 'rb') as f:
 		data = json.load(f)["Nodes"]
-	nodeDict = {}
-	for nodes in data:
-		print nodes['id'], node
-		if int(nodes['id']) == int(node):
-			nodeDict = nodes
-	print nodeDict
-	if len(nodeDict.keys()) == 0:
+	nodeDict = [d for d in data if int(d['id']) == int(node)]
+	if len(nodeDict) == 0:
+		return jsonify({"Error": "Cannot Find Node"})
+	else:
+		nodeDict = nodeDict[0]
+		return jsonify({"Node": nodeDict})
+
+## UPDATE NODE
+
+@app.route("/<string:node>", methods=['PUT'])
+def updateNode(node):
+	with open('json/pump.json', 'rb') as f:
+		data = json.load(f)["Nodes"]
+	toUpdate = [d for d in data if int(d['id']) == int(node)]
+	if len(toUpdate) == 0:
 		return jsonify({"Error": "Cannot find Node"})
 	else:
-		return jsonify({"Node": nodeDict})
+		newDict = [d for d in data if int(d['id']) != int(node)]
+		toUpdate = toUpdate[0]
+		toUpdate["isLocked"] = request.json["isLocked"]
+		newDict.append(toUpdate)
+		nodesDict = {
+			"Nodes": newDict
+		}
+		with open("json/pump.json", "w") as f:
+			json.dump(nodesDict, f, indent=2)
+		return jsonify({"updatedNode": toUpdate})	
+
+## DELETE NODE
+
+@app.route("/<string:node>", methods=["DELETE"])
+def deleteNode(node):
+	with open('json/pump.json', 'rb') as f:
+		data = json.load(f)["Nodes"]
+	newDict = [d for d in data if int(d['id']) != int(node)]
+	nodesDict = {
+		"Nodes": newDict
+	}
+	## For nodes dict, need to iterate through and remove 
+	## from any connections array 
+	for dd in newDict:
+		dd["connections"] = [conn for conn in dd["connections"] if int(conn) != int(node)] 
+		print dd["connections"]
+	with open('json/pump.json', 'w') as f:
+		json.dump(nodesDict, f, indent=2)
+	return jsonify({"newDict": newDict})
 
 """
 ROUTES FOR OBTAINING ISOLATION REGIME
@@ -75,15 +108,22 @@ ROUTES FOR OBTAINING ISOLATION REGIME
 
 @app.route("/<string:node>/isolate", methods=['GET'])
 def isolateNode(node):
-	print node 
-	return jsonify({"Testing": "123"})
-
+	with open("json/pump.json", "rb") as f:
+		data = json.load(f)["Nodes"]
+	nodeToIsolate = {}
+	for nodes in data:
+		if int(nodes['id']) == int(node):
+			nodeToIsolate = nodes
+	if len(nodeToIsolate.keys()) == 0:
+		return jsonify({"Error": "Cannot Find Node"})
+	else:
+		return jsonify({"Node": nodeToIsolate})
 
 """
 ROUTES FOR GETTING / CREATING CONNECTION
-
-breadth first search
 """
+
+
 
 """
 =================
@@ -111,6 +151,12 @@ route ("/:node/isolate") [GET]
 
 \/ route /:node [GET]
 	get a particular node
+
+route /:node [UPDATE]
+	updates the values for a particular node
+
+route /connection/:id1/:id2 [UPDATE]
+	updates a particular connection
 
 route /connection/:id1/:id2 [POST]
 	posts a new connection between id1 and id2
