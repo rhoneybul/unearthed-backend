@@ -113,7 +113,22 @@ def isolateNode(nodeId):
 	if nodeToIsolate == None:
 		return jsonify({"Error": "Cannot find node."})
 	else:
-		return jsonify({"node": nodeToIsolate})
+		nodesToIsolate = []
+		queue = [nodeToIsolate["id"]]
+		visited = {}
+		while len(queue) > 0:
+			cur = queue[0]
+			queue = queue[1:]
+			if visited[cur] == True:
+				continue
+			curNode = getNodeWithId(nodes, cur)
+			visited[cur] = True
+			if curNode["type"] == "Isolation valve":
+				nodesToIsolate.append(cur)
+			else:
+				for conn in curNode["connections"]:
+					queue.append(conn)
+		return jsonify(nodesToIsolate)
 
 """
 ROUTES FOR GETTING / CREATING CONNECTION
