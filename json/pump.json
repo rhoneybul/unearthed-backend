@@ -1,7 +1,7 @@
 {
 	"Nodes": [
 		{
-			"id": "pump",
+			"id": 0,
 			"critical": true,
 			"type": "plantPump",
 			"connections": {},
@@ -14,7 +14,7 @@
 			"verifictionLog": []			
 		},
 		{
-			"id": 0,
+			"id": 1,
 			"critical": false,
 			"type": "potableWaterIsolationValve",
 			"connections": {"pump":"plantPump"},
@@ -27,7 +27,7 @@
 			"verifictionLog": []			
 		},
 		{
-			"id": 1,
+			"id": 2,
 			"critical": false,
 			"type": "potableWaterIsolationValve",
 			"connections": {"pump":"plantPump", "2":"potableWaterIsolationValve", "3":"potableWaterIsolationValve"},
@@ -40,7 +40,7 @@
 			"verifictionLog": []			
 		},
 		{
-			"id": 2,
+			"id": 3,
 			"critical": false,
 			"type": "potableWaterIsolationValve",
 			"connections": {"1":"potableWaterIsolationValve", "3":"potableWaterIsolationValve"},
@@ -53,7 +53,7 @@
 			"verifictionLog": []			
 		},
 		{
-			"id": 3,
+			"id": 4,
 			"critical": false,
 			"type": "potableWaterIsolationValve",
 			"connections": {"1":"potableWaterIsolationValve", "2":"potableWaterIsolationValve"},
@@ -66,7 +66,7 @@
 			"verifictionLog": []			
 		},
 		{
-			"id": 4,
+			"id": 5,
 			"critical": false,
 			"type": "potableWaterIsolationValve",
 			"connections": {"3":"potableWaterIsolationValve"},
@@ -79,7 +79,7 @@
 			"verifictionLog": []			
 		},
 		{
-			"id": 5,
+			"id": 6,
 			"critical": true,
 			"type": "electricValve",
 			"connections": {"pump":"plantPump"},

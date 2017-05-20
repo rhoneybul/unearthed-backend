@@ -19,7 +19,7 @@ ROUTES FOR ALL NODES
 
 @app.route("/nodes", methods=['GET'])
 def getNodes():
-	with open('network.json', 'rb') as f:
+	with open('json/pump.json', 'rb') as f:
 		data = json.load(f)["Nodes"]
 	return jsonify({"Nodes": data})
 
@@ -27,7 +27,7 @@ def getNodes():
 
 @app.route("/nodes", methods=['POST'])
 def createNodes():
-	with open("network.json", "rb") as f:
+	with open("json/pump.json", "rb") as f:
 		data = json.load(f)['Nodes']
 	
 	## find what the next id must be
@@ -46,7 +46,7 @@ def createNodes():
 	nodesDict = {
 		"Nodes": data
 	}
-	with open("network.json", "w") as f:
+	with open("json/pump.json", "w") as f:
 		json.dump(nodesDict, f, indent=2)
 	return jsonify({"newNode": newNode})
 
@@ -56,7 +56,7 @@ ROUTES FOR A PARTICULAR NODE
 
 @app.route("/<string:node>", methods=['GET'])
 def getNode(node):
-	with open('network.json', 'rb') as f:
+	with open('json/pump.json', 'rb') as f:
 		data = json.load(f)["Nodes"]
 	nodeDict = {}
 	for nodes in data:
@@ -73,7 +73,7 @@ def getNode(node):
 ROUTES FOR OBTAINING ISOLATION REGIME
 """
 
-@app.route("/<string:node>/isolate", ['GET'])
+@app.route("/<string:node>/isolate", methods=['GET'])
 def isolateNode(node):
 	print node 
 	return jsonify({"Testing": "123"})
