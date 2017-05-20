@@ -13,6 +13,7 @@
       "connections": [1, 8, 15],
       "rIsolation": [],
       "isLocked": false,
+      "canIsolate": true,
       "type": "Electric pump",
       "id": 0
     },
@@ -29,6 +30,7 @@
       "connections": [0, 25],
       "rIsolation": [],
       "isLocked": false,
+      "canIsolate": true,
       "type": "Discharge valve",
       "id": 1
     },
@@ -45,6 +47,7 @@
       "connections": [25, 3],
       "rIsolation": [],
       "isLocked": false,
+      "canIsolate": true,
       "type": "Discharge valve",
       "id": 2
     },
@@ -61,6 +64,7 @@
       "connections": [2, 4],
       "rIsolation": [],
       "isLocked": false,
+      "canIsolate": false,
       "type": "Isolation valve",
       "id": 3
     },
@@ -77,6 +81,7 @@
       "connections": [3, 5, 6],
       "rIsolation": [],
       "isLocked": false,
+      "canIsolate": true,
       "type": "T join",
       "id": 4
     },
@@ -93,6 +98,7 @@
       "connections": [4],
       "rIsolation": [],
       "isLocked": false,
+      "canIsolate": true,
       "type": "Isolation valve",
       "id": 5
     },
@@ -109,6 +115,7 @@
       "connections": [4, 26],
       "rIsolation": [],
       "isLocked": false,
+      "canIsolate": true,
       "type": "Isolation valve",
       "id": 6
     },
@@ -125,6 +132,7 @@
       "connections": [26],
       "rIsolation": [],
       "isLocked": false,
+      "canIsolate": true,
       "type": "Isolation valve",
       "id": 7
     },
@@ -141,6 +149,7 @@
       "connections": [0, 24],
       "rIsolation": [],
       "isLocked": false,
+      "canIsolate": true,
       "type": "Discharge valve",
       "id": 8
     },
@@ -157,6 +166,7 @@
       "connections": [24, 10],
       "rIsolation": [],
       "isLocked": false,
+      "canIsolate": true,
       "type": "Discharge valve",
       "id": 9
     },
@@ -173,6 +183,7 @@
       "connections": [9, 20],
       "rIsolation": [],
       "isLocked": false,
+      "canIsolate": true,
       "type": "Discharge valve",
       "id": 10
     },
@@ -189,6 +200,7 @@
       "connections": [20, 12],
       "rIsolation": [],
       "isLocked": false,
+      "canIsolate": true,
       "type": "Isolation valve",
       "id": 11
     },
@@ -205,6 +217,7 @@
       "connections": [11, 13],
       "rIsolation": [],
       "isLocked": false,
+      "canIsolate": true,
       "type": "Discharge valve",
       "id": 12
     },
@@ -221,6 +234,7 @@
       "connections": [12, 14],
       "rIsolation": [],
       "isLocked": false,
+      "canIsolate": true,
       "type": "Discharge valve",
       "id": 13
     },
@@ -237,6 +251,7 @@
       "connections": [13],
       "rIsolation": [],
       "isLocked": false,
+      "canIsolate": true,
       "type": "Tank",
       "id": 14
     },
@@ -253,6 +268,7 @@
       "connections": [0, 18],
       "rIsolation": [],
       "isLocked": false,
+      "canIsolate": true,
       "type": "Electric switch",
       "id": 15
     },
@@ -269,6 +285,7 @@
       "connections": [0, 18],
       "rIsolation": [],
       "isLocked": false,
+      "canIsolate": true,
       "type": "Electric source",
       "id": 16
     },
@@ -285,6 +302,7 @@
       "connections": [18],
       "rIsolation": [],
       "isLocked": false,
+      "canIsolate": true,
       "type": "Electric ground",
       "id": 17
     },
@@ -301,6 +319,7 @@
       "connections": [15, 17, 16],
       "rIsolation": [],
       "isLocked": false,
+      "canIsolate": true,
       "type": "Electrical splitter",
       "id": 18
     },
@@ -317,6 +336,7 @@
       "connections": [26],
       "rIsolation": [],
       "isLocked": false,
+      "canIsolate": true,
       "type": "Isolation valve",
       "id": 19
     },
@@ -333,6 +353,7 @@
       "connections": [10, 11, 21],
       "rIsolation": [],
       "isLocked": false,
+      "canIsolate": true,
       "type": "T join",
       "id": 20
     },
@@ -349,6 +370,7 @@
       "connections": [22, 20],
       "rIsolation": [],
       "isLocked": false,
+      "canIsolate": true,
       "type": "Isolation valve",
       "id": 21
     },
@@ -365,6 +387,7 @@
       "connections": [21, 23],
       "rIsolation": [],
       "isLocked": false,
+      "canIsolate": true,
       "type": "Discharge valve",
       "id": 22
     },
@@ -381,6 +404,7 @@
       "connections": [22],
       "rIsolation": [],
       "isLocked": false,
+      "canIsolate": true,
       "type": "Discharge valve",
       "id": 23
     },
@@ -397,6 +421,7 @@
       "connections": [8, 9],
       "rIsolation": [],
       "isLocked": false,
+      "canIsolate": true,
       "type": "Screen filter",
       "id": 24
     },
@@ -413,6 +438,7 @@
       "connections": [1, 2],
       "rIsolation": [],
       "isLocked": false,
+      "canIsolate": true,
       "type": "Ball valve",
       "id": 25
     },
@@ -429,8 +455,9 @@
       "connections": [6, 7, 19],
       "rIsolation": [],
       "isLocked": false,
+      "canIsolate": true,
       "type": "T join",
       "id": 26
-    },
+    }
   ]
 }

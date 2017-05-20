@@ -119,11 +119,11 @@ def isolateNode(nodeId):
 		while len(queue) > 0:
 			cur = queue[0]
 			queue = queue[1:]
-			if visited[cur] == True:
+			if cur in visited:
 				continue
 			curNode = getNodeWithId(nodes, cur)
 			visited[cur] = True
-			if curNode["type"] == "Isolation valve":
+			if (curNode["type"] == "Isolation valve" or curNode["type"] == "Electric switch") and curNode["canIsolate"]:
 				nodesToIsolate.append(cur)
 			else:
 				for conn in curNode["connections"]:
