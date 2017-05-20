@@ -93,8 +93,6 @@ def deleteNode(node):
 	nodesDict = {
 		"Nodes": newDict
 	}
-	## For nodes dict, need to iterate through and remove 
-	## from any connections array 
 	for dd in newDict:
 		dd["connections"] = [conn for conn in dd["connections"] if int(conn) != int(node)] 
 		print dd["connections"]
@@ -123,7 +121,74 @@ def isolateNode(node):
 ROUTES FOR GETTING / CREATING CONNECTION
 """
 
+@app.route("/connections/<string:node>", methods=['GET'])
+def getConnections(node):
+	with open("json/pump.json", "rb") as f:
+		data = json.load(f)["Nodes"]
+	nodeData = [d for d in data if int(d["id"]) == int(node)]
+	if len(nodeData) == 0:
+		return jsonify({"Error": "Cannot Find Node"})
+	else:
+		nodeData = nodeData[0]
+		connections = nodeData["connections"]
+		if len(connections) == 0:
+			return jsonify({"Error": "No Connections"})
+		else:
+			connDict = []
+			for conn in connections:
+				connDict.append([d for d in data if int(d["id"]) == int(conn)][0])
+			return jsonify({"Connections": connDict})
 
+@app.route("/connections", methods=['POST'])
+def addConnection():
+	node1 = request.json['1']
+	node2 = request.json['2']
+	with open("json/pump.json", "rb") as f:
+		data = json.load(f)["Nodes"]
+	firstNode = [d for d in data if int(d["id"]) == int(node1)]
+	secondNode = [d for d in data if int(d["id"]) == int(node2)]
+	if len(firstNode) == 0 or len(secondNode) == 0:
+		return jsonify({"Error": "Cannot Find Node"})
+	else:
+		firstNode = firstNode[0]
+		secondNode = secondNode[0]
+		newDict = [d for d in data if int(d['id']) != int(node1) and int(d['id']) != int(node2)]
+		## Test if the connection already exists
+		if int(node1) in secondNode["connections"] or int(node2) in firstNode["connections"]:
+			return jsonify({"Error": "Connection Already Exists"})
+		else:
+			secondNode["connections"].append(int(node1))
+			firstNode["connections"].append(int(node2))
+			newDict.append(secondNode)
+			newDict.append(firstNode)
+			newDict = {
+				"Nodes": newDict
+			}
+			updatedNodes = [firstNode, secondNode]
+			with open("json/pump.json", "w") as f:
+				json.dump(newDict, f, indent=2)
+			return jsonify({"updatedNodes": updatedNodes})
+
+@app.route("/connections", methods=['DELETE'])
+def addConnection():
+	node1 = request.json['1']
+	node2 = request.json['2']
+	with open("json/pump.json", "rb") as f:
+		data = json.load(f)["Nodes"]
+	firstNode = [d for d in data if int(d["id"]) == int(node1)]
+	secondNode = [d for d in data if int(d["id"]) == int(node2)]
+	if len(firstNode) == 0 or len(secondNode) == 0:
+		return jsonify({"Error": "Cannot Find Node"})
+	else:
+		firstNode = firstNode[0]
+		secondNode = secondNode[0]
+		newDict = [d for d in data if int(d['id']) != int(node1) and int(d['id']) != int(node2)]
+		if int(node1) in secondNode["connections"] or int(node2) in firstNode["connections"]:
+			print secondNode['connections']
+			print firstNode['connections']
+			return jsonify({"Testing": "123"})
+		else:
+			return jsonify({"Error": "Connection Does Not Exist"})
 
 """
 =================
@@ -155,9 +220,6 @@ route ("/:node/isolate") [GET]
 route /:node [UPDATE]
 	updates the values for a particular node
 
-route /connection/:id1/:id2 [UPDATE]
-	updates a particular connection
-
 route /connection/:id1/:id2 [POST]
 	posts a new connection between id1 and id2
 
@@ -170,7 +232,7 @@ route /connection/:node [DELETE]
 	if no verification remove the node, 
 	and subsequently all connections associated with that node.
 
-route /connection/:id1/:id2 [GET]
+route /:node/connections [GET]
 	confirmation of the connection
 	if connections exists:
 		then display : connection exists between id1 and id2, and the verificaiton status
