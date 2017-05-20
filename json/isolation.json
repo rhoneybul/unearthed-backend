@@ -7,8 +7,8 @@
         "latitude": null
       },
       "dCoordinates": {
-        "x": 734,
-        "y": 684
+        "x": 694,
+        "y": 666
       },
       "connections": [1, 8, 15],
       "rIsolation": [],
@@ -24,8 +24,8 @@
         "latitude": null
       },
       "dCoordinates": {
-        "x": 814,
-        "y": 666
+        "x": 733,
+        "y": 664
       },
       "connections": [0, 25],
       "rIsolation": [],
@@ -41,8 +41,8 @@
         "latitude": null
       },
       "dCoordinates": {
-        "x": 876,
-        "y": 610
+        "x": 836,
+        "y": 607
       },
       "connections": [25, 3],
       "rIsolation": [],
@@ -58,8 +58,8 @@
         "latitude": null
       },
       "dCoordinates": {
-        "x": 905,
-        "y": 596
+        "x": 865,
+        "y": 594
       },
       "connections": [2, 4],
       "rIsolation": [],
@@ -75,8 +75,8 @@
         "latitude": null
       },
       "dCoordinates": {
-        "x": 935,
-        "y": 540
+        "x": 895,
+        "y": 538
       },
       "connections": [3, 5, 6],
       "rIsolation": [],
@@ -92,8 +92,8 @@
         "latitude": null
       },
       "dCoordinates": {
-        "x": 935,
-        "y": 519
+        "x": 895,
+        "y": 517
       },
       "connections": [4],
       "rIsolation": [],
@@ -109,8 +109,8 @@
         "latitude": null
       },
       "dCoordinates": {
-        "x": 899,
-        "y": 540
+        "x": 859,
+        "y": 538
       },
       "connections": [4, 26],
       "rIsolation": [],
@@ -126,8 +126,8 @@
         "latitude": null
       },
       "dCoordinates": {
-        "x": 512,
-        "y": 540
+        "x": 472,
+        "y": 538
       },
       "connections": [26],
       "rIsolation": [],
@@ -143,8 +143,8 @@
         "latitude": null
       },
       "dCoordinates": {
-        "x": 644,
-        "y": 682
+        "x": 604,
+        "y": 680
       },
       "connections": [0, 24],
       "rIsolation": [],
@@ -160,8 +160,8 @@
         "latitude": null
       },
       "dCoordinates": {
-        "x": 589,
-        "y": 546
+        "x": 548,
+        "y": 544
       },
       "connections": [24, 10],
       "rIsolation": [],
@@ -177,8 +177,8 @@
         "latitude": null
       },
       "dCoordinates": {
-        "x": 584,
-        "y": 514
+        "x": 543,
+        "y": 512
       },
       "connections": [9, 20],
       "rIsolation": [],
@@ -194,8 +194,8 @@
         "latitude": null
       },
       "dCoordinates": {
-        "x": 568,
-        "y": 288
+        "x": 528,
+        "y": 286
       },
       "connections": [20, 12],
       "rIsolation": [],
@@ -211,8 +211,8 @@
         "latitude": null
       },
       "dCoordinates": {
-        "x": 588,
-        "y": 260
+        "x": 548,
+        "y": 258
       },
       "connections": [11, 13],
       "rIsolation": [],
@@ -228,8 +228,8 @@
         "latitude": null
       },
       "dCoordinates": {
-        "x": 568,
-        "y": 148
+        "x": 528,
+        "y": 146
       },
       "connections": [12, 14],
       "rIsolation": [],
@@ -245,8 +245,8 @@
         "latitude": null
       },
       "dCoordinates": {
-        "x": 364,
-        "y": 148
+        "x": 324,
+        "y": 146
       },
       "connections": [13],
       "rIsolation": [],
@@ -262,8 +262,8 @@
         "latitude": null
       },
       "dCoordinates": {
-        "x": 734,
-        "y": 637
+        "x": 694,
+        "y": 635
       },
       "connections": [0, 18],
       "rIsolation": [],
@@ -330,8 +330,8 @@
         "latitude": null
       },
       "dCoordinates": {
-        "x": 762,
-        "y": 509
+        "x": 722,
+        "y": 507
       },
       "connections": [26],
       "rIsolation": [],
@@ -347,8 +347,8 @@
         "latitude": null
       },
       "dCoordinates": {
-        "x": 568,
-        "y": 402
+        "x": 528,
+        "y": 400
       },
       "connections": [10, 11, 21],
       "rIsolation": [],
@@ -364,8 +364,8 @@
         "latitude": null
       },
       "dCoordinates": {
-        "x": 0,
-        "y": 0
+        "x": 1338,
+        "y": 286
       },
       "connections": [22, 20],
       "rIsolation": [],
@@ -381,8 +381,8 @@
         "latitude": null
       },
       "dCoordinates": {
-        "x": 0,
-        "y": 0
+        "x": 1338,
+        "y": 146
       },
       "connections": [21, 23],
       "rIsolation": [],
@@ -398,8 +398,8 @@
         "latitude": null
       },
       "dCoordinates": {
-        "x": 0,
-        "y": 0
+        "x": 1130,
+        "y": 146
       },
       "connections": [22],
       "rIsolation": [],
@@ -415,8 +415,8 @@
         "latitude": null
       },
       "dCoordinates": {
-        "x": 568,
-        "y": 668
+        "x": 528,
+        "y": 666
       },
       "connections": [8, 9],
       "rIsolation": [],
@@ -432,8 +432,8 @@
         "latitude": null
       },
       "dCoordinates": {
-        "x": 853,
-        "y": 600
+        "x": 813,
+        "y": 598
       },
       "connections": [1, 2],
       "rIsolation": [],
@@ -449,8 +449,8 @@
         "latitude": null
       },
       "dCoordinates": {
-        "x": 762,
-        "y": 540
+        "x": 722,
+        "y": 538
       },
       "connections": [6, 7, 19],
       "rIsolation": [],
