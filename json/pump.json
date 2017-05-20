@@ -19,7 +19,7 @@
       "verifictionLog": [], 
       "longtitude": null, 
       "connections": {
-        "pump": "plantPump"
+        "0": "plantPump"
       }, 
       "isLocked": false, 
       "critical": false, 
