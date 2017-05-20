@@ -9,6 +9,12 @@ CORS(app)
 
 DATA_FN = 'json/isolation.json'
 
+def getNodeWithId(nodes, nodeId):
+	node = [n for n in nodes if int(n["id"]) == nodeId]
+	if len(node) == 0:
+		return None
+	return node[0]
+
 @app.route("/")
 def index():
 	return jsonify({"Greeting": 'Hello Hackathon'})
@@ -48,29 +54,27 @@ def createNodes():
 ROUTES FOR A PARTICULAR NODE
 """
 ## GET REQUEST FOR A PARTICULAR NODE
-@app.route("/<string:node>", methods=["GET"])
+@app.route("/<int:nodeId>", methods=["GET"])
 def getNode(nodeId):
 	with open(DATA_FN, "r") as f:
 		nodes = json.load(f)["nodes"]
-	nodeDict = [d for d in nodes if int(d["id"]) == int(nodeId)]
-	if len(nodeDict) == 0:
+	nodeDict = getNodeWithId(nodes, nodeId)
+	if nodeDict == None:
 		return jsonify({"Error": "Cannot find node."})
 	else:
-		nodeDict = nodeDict[0]
 		return jsonify({"node": nodeDict})
 
 ## UPDATE NODE
 
-@app.route("/<string:node>", methods=['PUT'])
+@app.route("/<int:nodeId>", methods=['PUT'])
 def updateNode(nodeId):
 	with open(v, "r") as f:
 		nodes = json.load(f)["nodes"]
-	toUpdate = [d for d in nodes if int(d["id"]) == int(nodeId)]
-	if len(toUpdate) == 0:
+	toUpdate = getNodeWithId(nodes, nodeId)
+	if toUpdate == None:
 		return jsonify({"Error": "Cannot find node."})
 	else:
-		newDict = [d for d in nodes if int(d["id"]) != int(nodeId)]
-		toUpdate = toUpdate[0]
+		newDict = [d for d in nodes if int(d["id"]) != nodeId]
 		toUpdate["isLocked"] = request.json["isLocked"]
 		newDict.append(toUpdate)
 		nodesDict = {
@@ -82,16 +86,16 @@ def updateNode(nodeId):
 
 ## DELETE NODE
 
-@app.route("/<string:node>", methods=["DELETE"])
+@app.route("/<int:nodeId>", methods=["DELETE"])
 def deleteNode(nodeId):
 	with open(DATA_FN, "r") as f:
 		nodes = json.load(f)["nodes"]
-	newDict = [d for d in nodes if int(d["id"]) != int(nodeId)]
+	newDict = [d for d in nodes if int(d["id"]) != nodeId]
 	nodesDict = {
 		"Nodes": newDict
 	}
 	for dd in newDict:
-		dd["connections"] = [conn for conn in dd["connections"] if int(conn) != int(nodeId)] 
+		dd["connections"] = [conn for conn in dd["connections"] if int(conn) != nodeId]
 		print dd["connections"]
 	with open(DATA_FN, "w") as f:
 		json.dump(nodesDict, f, indent=2)
@@ -101,15 +105,12 @@ def deleteNode(nodeId):
 ROUTES FOR OBTAINING ISOLATION REGIME
 """
 
-@app.route("/<string:node>/isolate", methods=["GET"])
+@app.route("/<int:nodeId>/isolate", methods=["GET"])
 def isolateNode(nodeId):
 	with open(DATA_FN, "r") as f:
 		nodes = json.load(f)["nodes"]
-	nodeToIsolate = {}
-	for node in nodes:
-		if int(node["id"]) == int(nodeId):
-			nodeToIsolate = node
-	if len(nodeToIsolate.keys()) == 0:
+	nodeToIsolate = getNodeWithId(nodes, nodeId)
+	if nodeToIsolate == None:
 		return jsonify({"Error": "Cannot find node."})
 	else:
 		return jsonify({"node": nodeToIsolate})
@@ -118,11 +119,11 @@ def isolateNode(nodeId):
 ROUTES FOR GETTING / CREATING CONNECTION
 """
 
-@app.route("/connections/<string:node>", methods=["GET"])
+@app.route("/connections/<int:nodeId>", methods=["GET"])
 def getConnections(nodeId):
 	with open(DATA_FN, "r") as f:
 		nodes = json.load(f)["nodes"]
-	nodeData = [d for d in nodes if int(d["id"]) == int(nodeId)]
+	nodeData = [d for d in nodes if int(d["id"]) == nodeId]
 	if len(nodeData) == 0:
 		return jsonify({"Error": "Cannot find node."})
 	else:
