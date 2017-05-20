@@ -1,0 +1,16 @@
+{
+  "name": null,
+  "geoCoordinates": {
+    "longitude": null,
+    "latitude": null,
+  },
+  "dCoordinates": {
+    "x": 0,
+    "y": 0,
+  },
+  "connections": [],
+  "rIsolation": [],
+  "isLocked": false,
+  "type": null,
+  "id": null,
+} 
