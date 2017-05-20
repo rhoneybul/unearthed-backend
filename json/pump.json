@@ -1,96 +1,111 @@
 {
-	"Nodes": [
-		{
-			"id": 0,
-			"critical": true,
-			"type": "plantPump",
-			"connections": {},
-			"longtitude": null,
-			"latitude": null,
-			"name": null,
-			"isLocked": false,
-			"verified": false,
-			"canIsolate": true,
-			"verifictionLog": []			
-		},
-		{
-			"id": 1,
-			"critical": false,
-			"type": "potableWaterIsolationValve",
-			"connections": {"pump":"plantPump"},
-			"longtitude": null,
-			"latitude": null,
-			"name": null,
-			"isLocked": false,
-			"verified": false,
-			"canIsolate": true,
-			"verifictionLog": []			
-		},
-		{
-			"id": 2,
-			"critical": false,
-			"type": "potableWaterIsolationValve",
-			"connections": {"pump":"plantPump", "2":"potableWaterIsolationValve", "3":"potableWaterIsolationValve"},
-			"longtitude": null,
-			"latitude": null,
-			"name": null,
-			"isLocked": false,
-			"verified": false,
-			"canIsolate": true,
-			"verifictionLog": []			
-		},
-		{
-			"id": 3,
-			"critical": false,
-			"type": "potableWaterIsolationValve",
-			"connections": {"1":"potableWaterIsolationValve", "3":"potableWaterIsolationValve"},
-			"longtitude": null,
-			"latitude": null,
-			"name": null,
-			"isLocked": false,
-			"verified": false,
-			"canIsolate": true,
-			"verifictionLog": []			
-		},
-		{
-			"id": 4,
-			"critical": false,
-			"type": "potableWaterIsolationValve",
-			"connections": {"1":"potableWaterIsolationValve", "2":"potableWaterIsolationValve"},
-			"longtitude": null,
-			"latitude": null,
-			"name": null,
-			"isLocked": false,
-			"verified": false,
-			"canIsolate": true,
-			"verifictionLog": []			
-		},
-		{
-			"id": 5,
-			"critical": false,
-			"type": "potableWaterIsolationValve",
-			"connections": {"3":"potableWaterIsolationValve"},
-			"longtitude": null,
-			"latitude": null,
-			"name": null,
-			"isLocked": false,
-			"verified": false,
-			"canIsolate": true,
-			"verifictionLog": []			
-		},
-		{
-			"id": 6,
-			"critical": true,
-			"type": "electricValve",
-			"connections": {"pump":"plantPump"},
-			"longtitude": null,
-			"latitude": null,
-			"name": null,
-			"isLocked": false,
-			"verified": false,
-			"canIsolate": true,
-			"verifictionLog": []			
-		}
-
-	]
-}	
+  "Nodes": [
+    {
+      "verified": false, 
+      "name": null, 
+      "verifictionLog": [], 
+      "longtitude": null, 
+      "connections": {}, 
+      "isLocked": false, 
+      "critical": true, 
+      "canIsolate": true, 
+      "latitude": null, 
+      "type": "plantPump", 
+      "id": 0
+    }, 
+    {
+      "verified": false, 
+      "name": null, 
+      "verifictionLog": [], 
+      "longtitude": null, 
+      "connections": {
+        "pump": "plantPump"
+      }, 
+      "isLocked": false, 
+      "critical": false, 
+      "canIsolate": true, 
+      "latitude": null, 
+      "type": "potableWaterIsolationValve", 
+      "id": 1
+    }, 
+    {
+      "verified": false, 
+      "name": null, 
+      "verifictionLog": [], 
+      "longtitude": null, 
+      "connections": {
+        "0": "plantPump", 
+        "2": "potableWaterIsolationValve", 
+        "3": "potableWaterIsolationValve"
+      }, 
+      "isLocked": false, 
+      "critical": false, 
+      "canIsolate": true, 
+      "latitude": null, 
+      "type": "potableWaterIsolationValve", 
+      "id": 2
+    }, 
+    {
+      "verified": false, 
+      "name": null, 
+      "verifictionLog": [], 
+      "longtitude": null, 
+      "connections": {
+        "1": "potableWaterIsolationValve", 
+        "3": "potableWaterIsolationValve"
+      }, 
+      "isLocked": false, 
+      "critical": false, 
+      "canIsolate": true, 
+      "latitude": null, 
+      "type": "potableWaterIsolationValve", 
+      "id": 3
+    }, 
+    {
+      "verified": false, 
+      "name": null, 
+      "verifictionLog": [], 
+      "longtitude": null, 
+      "connections": {
+        "1": "potableWaterIsolationValve", 
+        "2": "potableWaterIsolationValve"
+      }, 
+      "isLocked": false, 
+      "critical": false, 
+      "canIsolate": true, 
+      "latitude": null, 
+      "type": "potableWaterIsolationValve", 
+      "id": 4
+    }, 
+    {
+      "verified": false, 
+      "name": null, 
+      "verifictionLog": [], 
+      "longtitude": null, 
+      "connections": {
+        "3": "potableWaterIsolationValve"
+      }, 
+      "isLocked": false, 
+      "critical": false, 
+      "canIsolate": true, 
+      "latitude": null, 
+      "type": "potableWaterIsolationValve", 
+      "id": 5
+    }, 
+    {
+      "verified": false, 
+      "name": null, 
+      "verifictionLog": [], 
+      "longtitude": null, 
+      "connections": {
+        "0": "plantPump"
+      }, 
+      "isLocked": false, 
+      "critical": true, 
+      "canIsolate": true, 
+      "latitude": null, 
+      "type": "electricValve", 
+      "id": 6
+    }
+  ]
+}
