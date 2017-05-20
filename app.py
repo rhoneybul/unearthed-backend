@@ -81,6 +81,8 @@ def isolateNode(node):
 
 """
 ROUTES FOR GETTING / CREATING CONNECTION
+
+breadth first search
 """
 
 """
