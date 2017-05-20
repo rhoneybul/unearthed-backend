@@ -7,8 +7,8 @@
         "latitude": null
       },
       "dCoordinates": {
-        "x": 0,
-        "y": 0
+        "x": 734,
+        "y": 684
       },
       "connections": [1, 8, 15],
       "rIsolation": [],
@@ -24,8 +24,8 @@
         "latitude": null
       },
       "dCoordinates": {
-        "x": 0,
-        "y": 0
+        "x": 814,
+        "y": 666
       },
       "connections": [0, 25],
       "rIsolation": [],
@@ -41,8 +41,8 @@
         "latitude": null
       },
       "dCoordinates": {
-        "x": 0,
-        "y": 0
+        "x": 876,
+        "y": 610
       },
       "connections": [25, 3],
       "rIsolation": [],
@@ -58,8 +58,8 @@
         "latitude": null
       },
       "dCoordinates": {
-        "x": 0,
-        "y": 0
+        "x": 905,
+        "y": 596
       },
       "connections": [2, 4],
       "rIsolation": [],
@@ -75,8 +75,8 @@
         "latitude": null
       },
       "dCoordinates": {
-        "x": 0,
-        "y": 0
+        "x": 935,
+        "y": 540
       },
       "connections": [3, 5, 6],
       "rIsolation": [],
@@ -92,8 +92,8 @@
         "latitude": null
       },
       "dCoordinates": {
-        "x": 0,
-        "y": 0
+        "x": 935,
+        "y": 519
       },
       "connections": [4],
       "rIsolation": [],
@@ -109,8 +109,8 @@
         "latitude": null
       },
       "dCoordinates": {
-        "x": 0,
-        "y": 0
+        "x": 899,
+        "y": 540
       },
       "connections": [4, 26],
       "rIsolation": [],
@@ -126,8 +126,8 @@
         "latitude": null
       },
       "dCoordinates": {
-        "x": 0,
-        "y": 0
+        "x": 512,
+        "y": 540
       },
       "connections": [26],
       "rIsolation": [],
@@ -143,8 +143,8 @@
         "latitude": null
       },
       "dCoordinates": {
-        "x": 0,
-        "y": 0
+        "x": 644,
+        "y": 682
       },
       "connections": [0, 24],
       "rIsolation": [],
@@ -160,8 +160,8 @@
         "latitude": null
       },
       "dCoordinates": {
-        "x": 0,
-        "y": 0
+        "x": 589,
+        "y": 546
       },
       "connections": [24, 10],
       "rIsolation": [],
@@ -177,8 +177,8 @@
         "latitude": null
       },
       "dCoordinates": {
-        "x": 0,
-        "y": 0
+        "x": 584,
+        "y": 514
       },
       "connections": [9, 20],
       "rIsolation": [],
@@ -194,8 +194,8 @@
         "latitude": null
       },
       "dCoordinates": {
-        "x": 0,
-        "y": 0
+        "x": 568,
+        "y": 288
       },
       "connections": [20, 12],
       "rIsolation": [],
@@ -211,8 +211,8 @@
         "latitude": null
       },
       "dCoordinates": {
-        "x": 0,
-        "y": 0
+        "x": 588,
+        "y": 260
       },
       "connections": [11, 13],
       "rIsolation": [],
@@ -228,8 +228,8 @@
         "latitude": null
       },
       "dCoordinates": {
-        "x": 0,
-        "y": 0
+        "x": 568,
+        "y": 148
       },
       "connections": [12, 14],
       "rIsolation": [],
@@ -245,8 +245,8 @@
         "latitude": null
       },
       "dCoordinates": {
-        "x": 0,
-        "y": 0
+        "x": 364,
+        "y": 148
       },
       "connections": [13],
       "rIsolation": [],
@@ -262,8 +262,8 @@
         "latitude": null
       },
       "dCoordinates": {
-        "x": 0,
-        "y": 0
+        "x": 734,
+        "y": 637
       },
       "connections": [0, 18],
       "rIsolation": [],
@@ -330,8 +330,8 @@
         "latitude": null
       },
       "dCoordinates": {
-        "x": 0,
-        "y": 0
+        "x": 762,
+        "y": 509
       },
       "connections": [26],
       "rIsolation": [],
@@ -347,8 +347,8 @@
         "latitude": null
       },
       "dCoordinates": {
-        "x": 0,
-        "y": 0
+        "x": 568,
+        "y": 402
       },
       "connections": [10, 11, 21],
       "rIsolation": [],
@@ -415,8 +415,8 @@
         "latitude": null
       },
       "dCoordinates": {
-        "x": 0,
-        "y": 0
+        "x": 568,
+        "y": 668
       },
       "connections": [8, 9],
       "rIsolation": [],
@@ -432,8 +432,8 @@
         "latitude": null
       },
       "dCoordinates": {
-        "x": 0,
-        "y": 0
+        "x": 853,
+        "y": 600
       },
       "connections": [1, 2],
       "rIsolation": [],
@@ -449,8 +449,8 @@
         "latitude": null
       },
       "dCoordinates": {
-        "x": 0,
-        "y": 0
+        "x": 762,
+        "y": 540
       },
       "connections": [6, 7, 19],
       "rIsolation": [],
