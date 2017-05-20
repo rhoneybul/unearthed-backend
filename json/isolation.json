@@ -1,0 +1,196 @@
+{
+  "Nodes": [
+    {
+      "name": "P033440",  
+      "geoCoordinates": {
+        "longtitude": null,
+        "latitude": null,
+      },
+      "dCoordinates": {
+        "x": 0,
+        "y": 0
+      },
+      "connections": [1, 8, 15], 
+      "rIsolation":[],
+      "isLocked": false,   
+      "type": "Electric pump", 
+      "id": 0
+    },
+    {
+      "name": "D033401",  
+      "geoCoordinates": {
+        "longtitude": null,
+        "latitude": null,
+      },
+      "dCoordinates": {
+        "x": 0,
+        "y": 0
+      },
+      "connections": [0, 25], 
+      "rIsolation":[],
+      "isLocked": false,   
+      "type": "Discharge valve", 
+      "id": 1
+    },
+    {
+      "name": "D033402",  
+      "geoCoordinates": {
+        "longtitude": null,
+        "latitude": null,
+      },
+      "dCoordinates": {
+        "x": 0,
+        "y": 0
+      },
+      "connections": [25, 3], 
+      "rIsolation":[],
+      "isLocked": false,   
+      "type": "Discharge valve", 
+      "id": 2
+    },
+    {
+      "name": "V033401",  
+      "geoCoordinates": {
+        "longtitude": null,
+        "latitude": null,
+      },
+      "dCoordinates": {
+        "x": 0,
+        "y": 0
+      },
+      "connections": [2, 4], 
+      "rIsolation":[],
+      "isLocked": false,   
+      "type": "Isolation valve", 
+      "id": 3
+    },
+    {
+      "name": "T1",  
+      "geoCoordinates": {
+        "longtitude": null,
+        "latitude": null,
+      },
+      "dCoordinates": {
+        "x": 0,
+        "y": 0
+      },
+      "connections": [3, 5, 6], 
+      "rIsolation":[],
+      "isLocked": false,   
+      "type": "T join", 
+      "id": 4
+    },
+    {
+      "name": "V033402",  
+      "geoCoordinates": {
+        "longtitude": null,
+        "latitude": null,
+      },
+      "dCoordinates": {
+        "x": 0,
+        "y": 0
+      },
+      "connections": [4], 
+      "rIsolation":[],
+      "isLocked": false,   
+      "type": "Isolation valve", 
+      "id": 5
+    },
+    {
+      "name": "V033403",  
+      "geoCoordinates": {
+        "longtitude": null,
+        "latitude": null,
+      },
+      "dCoordinates": {
+        "x": 0,
+        "y": 0
+      },
+      "connections": [4, 26], 
+      "rIsolation":[],
+      "isLocked": false,   
+      "type": "Isolation valve", 
+      "id": 6
+    },
+    {
+      "name": "V033404",  
+      "geoCoordinates": {
+        "longtitude": null,
+        "latitude": null,
+      },
+      "dCoordinates": {
+        "x": 0,
+        "y": 0
+      },
+      "connections": [26], 
+      "rIsolation":[],
+      "isLocked": false,   
+      "type": "Isolation valve", 
+      "id": 7
+    },
+    {
+      "name": "D033403",  
+      "geoCoordinates": {
+        "longtitude": null,
+        "latitude": null,
+      },
+      "dCoordinates": {
+        "x": 0,
+        "y": 0
+      },
+      "connections": [0, 24], 
+      "rIsolation":[],
+      "isLocked": false,   
+      "type": "Discharge valve", 
+      "id": 8
+    },
+    {
+      "name": "D033404",  
+      "geoCoordinates": {
+        "longtitude": null,
+        "latitude": null,
+      },
+      "dCoordinates": {
+        "x": 0,
+        "y": 0
+      },
+      "connections": [24, 10], 
+      "rIsolation":[],
+      "isLocked": false,   
+      "type": "Discharge valve", 
+      "id": 9
+    },
+    {
+      "name": "D033405",  
+      "geoCoordinates": {
+        "longtitude": null,
+        "latitude": null,
+      },
+      "dCoordinates": {
+        "x": 0,
+        "y": 0
+      },
+      "connections": [9, 20], 
+      "rIsolation":[],
+      "isLocked": false,   
+      "type": "Discharge valve", 
+      "id": 10
+    },
+    {
+      "name": "V033406",  
+      "geoCoordinates": {
+        "longtitude": null,
+        "latitude": null,
+      },
+      "dCoordinates": {
+        "x": 0,
+        "y": 0
+      },
+      "connections": [20, 12], 
+      "rIsolation":[],
+      "isLocked": false,   
+      "type": "Isolation valve", 
+      "id": 11
+    }
+  ]
+}
