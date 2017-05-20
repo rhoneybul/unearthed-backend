@@ -1,0 +1,20 @@
+{
+  "Nodes": [
+    {
+      "type": "Pump", 
+      "id": 0
+    }, 
+    {
+      "type": "Valve", 
+      "id": 1
+    }, 
+    {
+      "type": "valve", 
+      "id": 2
+    }, 
+    {
+      "type": "valve", 
+      "id": 3
+    }
+  ]
+}
