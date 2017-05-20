@@ -19,67 +19,62 @@ ROUTES FOR ALL NODES
 
 ## GET request to return all nodes
 
-@app.route("/nodes", methods=['GET'])
+@app.route("/nodes", methods=["GET"])
 def getNodes():
-	with open(DATA_FN, 'rb') as f:
-		data = json.load(f)["Nodes"]
-	return jsonify({"Nodes": data})
+	with open(DATA_FN, "r") as f:
+		nodes = json.load(f)["nodes"]
+	return jsonify({"nodes": nodes})
 
-## POST request to add a new node 
+## POST request to add a new node
 
-@app.route("/nodes", methods=['POST'])
+@app.route("/nodes", methods=["POST"])
 def createNodes():
-	with open(DATA_FN, "rb") as f:
-		data = json.load(f)['Nodes']
+	with open(DATA_FN, "r") as f:
+		nodes = json.load(f)["nodes"]
 	ids = []
-	for node in data:
-		ids.append(node['id'])
-	maxid = np.max(ids)
-	id = maxid+1
+	for node in nodes:
+		ids.append(node["id"])
+	newid = np.max(ids) + 1
 	newNode = {
-		"id": id,
+		"id": newid,
 		"type": request.json["type"]
 	}
-	
-	data.append(newNode)
-	nodesDict = {
-		"Nodes": data
-	}
+	nodes.append(newNode)
 	with open(DATA_FN, "w") as f:
-		json.dump(nodesDict, f, indent=2)
+		json.dump({"nodes": nodes}, f, indent=2)
 	return jsonify({"newNode": newNode})
 
 """
 ROUTES FOR A PARTICULAR NODE
 """
 ## GET REQUEST FOR A PARTICULAR NODE
-@app.route("/<string:node>", methods=['GET'])
-def getNode(node):
-	with open(DATA_FN, 'rb') as f:
-		data = json.load(f)["Nodes"]
-	nodeDict = [d for d in data if int(d['id']) == int(node)]
+@app.route("/<string:node>", methods=["GET"])
+def getNode(nodeId):
+	with open(DATA_FN, "r") as f:
+		nodes = json.load(f)["nodes"]
+	nodeDict = [d for d in nodes if int(d["id"]) == int(nodeId)]
 	if len(nodeDict) == 0:
-		return jsonify({"Error": "Cannot Find Node"})
+		return jsonify({"Error": "Cannot find node."})
 	else:
 		nodeDict = nodeDict[0]
-		return jsonify({"Node": nodeDict})
+		return jsonify({"node": nodeDict})
 
 ## UPDATE NODE
 
 @app.route("/<string:node>", methods=['PUT'])
-def updateNode(node):
-	with open(v, 'rb') as f:
-		data = json.load(f)["Nodes"]
-	toUpdate = [d for d in data if int(d['id']) == int(node)]
+def updateNode(nodeId):
+	with open(v, "r") as f:
+		nodes = json.load(f)["nodes"]
+	toUpdate = [d for d in nodes if int(d["id"]) == int(nodeId)]
 	if len(toUpdate) == 0:
-		return jsonify({"Error": "Cannot find Node"})
+		return jsonify({"Error": "Cannot find node."})
 	else:
-		newDict = [d for d in data if int(d['id']) != int(node)]
+		newDict = [d for d in nodes if int(d["id"]) != int(nodeId)]
 		toUpdate = toUpdate[0]
 		toUpdate["isLocked"] = request.json["isLocked"]
 		newDict.append(toUpdate)
 		nodesDict = {
-			"Nodes": newDict
+			"nodes": newDict
 		}
 		with open(DATA_FN, "w") as f:
 			json.dump(nodesDict, f, indent=2)
@@ -88,17 +83,17 @@ def updateNode(node):
 ## DELETE NODE
 
 @app.route("/<string:node>", methods=["DELETE"])
-def deleteNode(node):
-	with open(DATA_FN, 'rb') as f:
-		data = json.load(f)["Nodes"]
-	newDict = [d for d in data if int(d['id']) != int(node)]
+def deleteNode(nodeId):
+	with open(DATA_FN, "r") as f:
+		nodes = json.load(f)["nodes"]
+	newDict = [d for d in nodes if int(d["id"]) != int(nodeId)]
 	nodesDict = {
 		"Nodes": newDict
 	}
 	for dd in newDict:
-		dd["connections"] = [conn for conn in dd["connections"] if int(conn) != int(node)] 
+		dd["connections"] = [conn for conn in dd["connections"] if int(conn) != int(nodeId)] 
 		print dd["connections"]
-	with open(DATA_FN, 'w') as f:
+	with open(DATA_FN, "w") as f:
 		json.dump(nodesDict, f, indent=2)
 	return jsonify({"newDict": newDict})
 
@@ -106,65 +101,65 @@ def deleteNode(node):
 ROUTES FOR OBTAINING ISOLATION REGIME
 """
 
-@app.route("/<string:node>/isolate", methods=['GET'])
-def isolateNode(node):
-	with open(DATA_FN, "rb") as f:
-		data = json.load(f)["Nodes"]
+@app.route("/<string:node>/isolate", methods=["GET"])
+def isolateNode(nodeId):
+	with open(DATA_FN, "r") as f:
+		nodes = json.load(f)["nodes"]
 	nodeToIsolate = {}
-	for nodes in data:
-		if int(nodes['id']) == int(node):
-			nodeToIsolate = nodes
+	for node in nodes:
+		if int(node["id"]) == int(nodeId):
+			nodeToIsolate = node
 	if len(nodeToIsolate.keys()) == 0:
-		return jsonify({"Error": "Cannot Find Node"})
+		return jsonify({"Error": "Cannot find node."})
 	else:
-		return jsonify({"Node": nodeToIsolate})
+		return jsonify({"node": nodeToIsolate})
 
 """
 ROUTES FOR GETTING / CREATING CONNECTION
 """
 
-@app.route("/connections/<string:node>", methods=['GET'])
-def getConnections(node):
-	with open(DATA_FN, "rb") as f:
-		data = json.load(f)["Nodes"]
-	nodeData = [d for d in data if int(d["id"]) == int(node)]
+@app.route("/connections/<string:node>", methods=["GET"])
+def getConnections(nodeId):
+	with open(DATA_FN, "r") as f:
+		nodes = json.load(f)["nodes"]
+	nodeData = [d for d in nodes if int(d["id"]) == int(nodeId)]
 	if len(nodeData) == 0:
-		return jsonify({"Error": "Cannot Find Node"})
+		return jsonify({"Error": "Cannot find node."})
 	else:
 		nodeData = nodeData[0]
 		connections = nodeData["connections"]
 		if len(connections) == 0:
-			return jsonify({"Error": "No Connections"})
+			return jsonify({"Error": "No Connections."})
 		else:
 			connDict = []
 			for conn in connections:
-				connDict.append([d for d in data if int(d["id"]) == int(conn)][0])
+				connDict.append([d for d in nodes if int(d["id"]) == int(conn)][0])
 			return jsonify({"Connections": connDict})
 
-@app.route("/connections", methods=['POST'])
+@app.route("/connections", methods=["POST"])
 def addConnection():
 	node1 = request.json['1']
 	node2 = request.json['2']
-	with open(DATA_FN, "rb") as f:
-		data = json.load(f)["Nodes"]
-	firstNode = [d for d in data if int(d["id"]) == int(node1)]
-	secondNode = [d for d in data if int(d["id"]) == int(node2)]
+	with open(DATA_FN, "r") as f:
+		nodes = json.load(f)["nodes"]
+	firstNode = [d for d in nodes if int(d["id"]) == int(node1)]
+	secondNode = [d for d in nodes if int(d["id"]) == int(node2)]
 	if len(firstNode) == 0 or len(secondNode) == 0:
-		return jsonify({"Error": "Cannot Find Node"})
+		return jsonify({"Error": "Cannot find node."})
 	else:
 		firstNode = firstNode[0]
 		secondNode = secondNode[0]
-		newDict = [d for d in data if int(d['id']) != int(node1) and int(d['id']) != int(node2)]
+		newDict = [d for d in nodes if int(d["id"]) != int(node1) and int(d["id"]) != int(node2)]
 		## Test if the connection already exists
 		if int(node1) in secondNode["connections"] or int(node2) in firstNode["connections"]:
-			return jsonify({"Error": "Connection Already Exists"})
+			return jsonify({"Error": "Connection already exists."})
 		else:
 			secondNode["connections"].append(int(node1))
 			firstNode["connections"].append(int(node2))
 			newDict.append(secondNode)
 			newDict.append(firstNode)
 			newDict = {
-				"Nodes": newDict
+				"nodes": newDict
 			}
 			updatedNodes = [firstNode, secondNode]
 			with open(DATA_FN, "w") as f:
@@ -173,16 +168,16 @@ def addConnection():
 
 @app.route("/connections/<string:node1>/<string:node2>", methods=['DELETE'])
 def deleteConnection(node1, node2):
-	with open(DATA_FN, "rb") as f:
-		data = json.load(f)["Nodes"]
-	firstNode = [d for d in data if int(d["id"]) == int(node1)]
-	secondNode = [d for d in data if int(d["id"]) == int(node2)]
+	with open(DATA_FN, "r") as f:
+		nodes = json.load(f)["nodes"]
+	firstNode = [d for d in nodes if int(d["id"]) == int(node1)]
+	secondNode = [d for d in nodes if int(d["id"]) == int(node2)]
 	if len(firstNode) == 0 or len(secondNode) == 0:
-		return jsonify({"Error": "Cannot Find Node"})
+		return jsonify({"Error": "Cannot find node."})
 	else:
 		firstNode = firstNode[0]
 		secondNode = secondNode[0]
-		newDict = [d for d in data if int(d['id']) != int(node1) and int(d['id']) != int(node2)]
+		newDict = [d for d in nodes if int(d["id"]) != int(node1) and int(d["id"]) != int(node2)]
 		if int(node1) in secondNode["connections"] or int(node2) in firstNode["connections"]:
 			secondNode['connections'].remove(int(node1))
 			firstNode['connections'].remove(int(node2))
@@ -190,13 +185,13 @@ def deleteConnection(node1, node2):
 			newDict.append(firstNode)
 			updatedNodes = [firstNode, secondNode]
 			updatedDict = {
-				"Nodes": newDict
+				"nodes": newDict
 			}
 			with open(DATA_FN, "w") as f:
 				json.dump(updatedDict, f, indent=2)
 			return jsonify({"updatedNodes": updatedNodes})
 		else:
-			return jsonify({"Error": "Connection Does Not Exist"})
+			return jsonify({"Error": "Connection does not exist."})
 
 """
 =================
