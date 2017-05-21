@@ -24,9 +24,9 @@
         "latitude": null
       },
       "dCoordinates": {
-        "x": 733,
+        "x": 773,
         "y": 664
-      },
+      }
       "connections": [0, 25],
       "rIsolation": [],
       "isLocked": false,
